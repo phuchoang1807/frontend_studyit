@@ -6,32 +6,10 @@ export default function RegisterPage() {
   const [showConfirm, setShowConfirm] = useState(false);
 
   return (
-    <div className="min-h-screen bg-slate-50 relative flex items-center justify-center px-4 py-10 overflow-hidden font-sans">
-      
-      {/* ===== BACKGROUND LAYER ===== */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-slate-50 to-white"></div>
-
-        {/* floating tags */}
-        <div className="absolute top-[15%] left-[10%] hidden lg:flex items-center gap-2 px-5 py-2 bg-white rounded-full shadow text-sm font-semibold text-slate-600">
-          🤖 AI & Robotics
-        </div>
-
-        <div className="absolute bottom-[20%] left-[12%] hidden lg:flex items-center gap-2 px-5 py-2 bg-white rounded-full shadow text-sm font-semibold text-slate-600">
-          💻 Web Development
-        </div>
-
-        <div className="absolute top-[20%] right-[10%] hidden lg:flex items-center gap-2 px-5 py-2 bg-white rounded-full shadow text-sm font-semibold text-slate-600">
-          📊 Data Science
-        </div>
-
-        <div className="absolute bottom-[25%] right-[15%] hidden lg:flex items-center gap-2 px-5 py-2 bg-white rounded-full shadow text-sm font-semibold text-slate-600">
-          ☁️ Cloud & DevOps
-        </div>
-      </div>
+    <div className="min-h-screen bg-white flex items-center justify-center px-4 py-10">
 
       {/* ===== CARD ===== */}
-      <div className="relative z-10 w-full max-w-[560px] bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden">
+      <div className="w-full max-w-[560px] bg-white rounded-xl shadow-xl border border-gray-200 overflow-hidden">
         
         {/* HEADER */}
         <div className="px-8 pt-8 pb-4">
@@ -76,8 +54,7 @@ export default function RegisterPage() {
               <input
                 type="text"
                 placeholder="Nguyễn Văn A"
-                className="mt-2 w-full h-12 px-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
+                className="mt-2 w-full h-12 px-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"              />
             </div>
 
             {/* EMAIL */}
@@ -88,8 +65,7 @@ export default function RegisterPage() {
               <input
                 type="email"
                 placeholder="example@email.com"
-                className="mt-2 w-full h-12 px-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
+                className="mt-2 w-full h-12 px-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"              />
             </div>
 
             {/* PASSWORD */}
@@ -137,8 +113,7 @@ export default function RegisterPage() {
                 <input
                   type={showConfirm ? "text" : "password"}
                   placeholder="Nhập lại mật khẩu"
-                  className="w-full h-12 pl-4 pr-12 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
+                  className="w-full h-12 pl-4 pr-12 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"                />
                 <button
                   type="button"
                   onClick={() => setShowConfirm(!showConfirm)}
@@ -154,11 +129,11 @@ export default function RegisterPage() {
               <input type="checkbox" className="mt-1" />
               <p className="text-sm text-gray-500">
                 Tôi đồng ý với{" "}
-                <span className="text-blue-600 font-medium cursor-pointer">
+                <span className="text-indigo-600 font-medium cursor-pointer">
                   Điều khoản dịch vụ
                 </span>{" "}
                 và{" "}
-                <span className="text-blue-600 font-medium cursor-pointer">
+                <span className="text-indigo-600 font-medium cursor-pointer">
                   Chính sách bảo mật
                 </span>
               </p>
@@ -167,8 +142,7 @@ export default function RegisterPage() {
             {/* BUTTON */}
             <button
               type="submit"
-              className="mt-2 h-12 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition active:scale-95"
-            >
+              className="mt-2 h-12 bg-indigo-600 text-white font-bold rounded-lg hover:bg-indigo-700 transition active:scale-95"            >
               Đăng ký ngay
             </button>
           </form>
@@ -177,11 +151,11 @@ export default function RegisterPage() {
           <p className="text-center text-sm text-gray-500">
             Đã có tài khoản?{" "}
             <Link
-  to="/"
-  className="text-blue-600 font-semibold"
->
-  Đăng nhập ngay
-</Link>
+              to="/"
+              className="text-indigo-600 font-semibold"
+            >
+              Đăng nhập ngay
+            </Link>
           </p>
 
         </div>

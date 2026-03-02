@@ -1,8 +1,8 @@
-    import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
     export default function ForgotPasswordPage() {
     return (
-        <div className="min-h-screen flex flex-col bg-[#f6f7f8]">
+        <div className="min-h-screen flex flex-col bg-white">
         
         {/* MAIN */}
         <main className="flex-grow flex items-center justify-center p-4 relative overflow-hidden">
@@ -12,8 +12,7 @@
             <div className="p-8 flex flex-col gap-6">
                 
                 <div className="text-center space-y-2">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 text-blue-600 mb-2">
-                    🔐
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gray-100 text-gray-600 mb-2">                    🔐
                 </div>
                 <h1 className="text-3xl font-black">
                     Quên Mật khẩu
@@ -23,7 +22,7 @@
                 </p>
                 </div>
 
-                <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
+                <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                 <p className="text-sm text-center text-gray-700">
                     Nhập email đã đăng ký, chúng tôi sẽ gửi liên kết đặt lại mật khẩu.
                 </p>
@@ -46,7 +45,7 @@
 
                 <button
                     type="button"
-                    className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition"
+                    className="w-full h-12 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg transition"
                 >
                     Gửi liên kết xác nhận
                 </button>
@@ -55,7 +54,7 @@
                 <div className="flex justify-center mt-2">
                 <Link
                     to="/"
-                    className="inline-flex items-center gap-2 text-sm font-bold text-gray-500 hover:text-blue-600 transition"
+                    className="inline-flex items-center gap-2 text-sm font-bold text-gray-500 hover:text-indigo-600 transition"
                 >
                     ← Quay lại Đăng nhập
                 </Link>
