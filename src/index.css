@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* reset + font giống UI design */
+html, body, #root {
+  height: 100%;
+}
