@@ -78,7 +78,7 @@ export default function DashboardHome() {
             tags={["#python", "#async"]}
             author="Sarah Connor"
             date="Oct 17, 2023"
-            rating="4.8/5"
+            comments={128}
           />
 
           <UploadCard
@@ -87,7 +87,7 @@ export default function DashboardHome() {
             tags={["#react", "#redux"]}
             author="Mike Wazowski"
             date="Oct 15, 2023"
-            rating="4.5/5"
+            comments={96}
           />
 
           <UploadCard
@@ -96,7 +96,7 @@ export default function DashboardHome() {
             tags={["#ML", "#algorithms"]}
             author="Jane Doe"
             date="Oct 12, 2023"
-            rating="4.9/5"
+            comments={66}
           />
 
           <UploadCard
@@ -105,7 +105,7 @@ export default function DashboardHome() {
             tags={["#cloud", "#scaling"]}
             author="Bob Smith"
             date="Oct 10, 2023"
-            rating="4.7/5"
+            comments={99}
           />
 
           <UploadCard
@@ -114,7 +114,7 @@ export default function DashboardHome() {
             tags={["#devops", "#docker"]}
             author="Alice Wonderland"
             date="Oct 08, 2023"
-            rating="4.9/5"
+            comments={55}
           />
 
           <UploadCard
@@ -123,7 +123,7 @@ export default function DashboardHome() {
             tags={["#testing", "#api"]}
             author="Tom Cat"
             date="Oct 05, 2023"
-            rating="4.6/5"
+            comments={36}
           />
 
         </div>
@@ -158,7 +158,7 @@ function CategoryCard({ title, icon, tags }) {
   );
 }
 
-function UploadCard({ type, title, tags, author, date, rating }) {
+function UploadCard({ type, title, tags, author, date, comments }) {
   return (
     <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 group hover:border-primary/50 transition-all">
 
@@ -188,8 +188,9 @@ function UploadCard({ type, title, tags, author, date, rating }) {
           <p className="text-slate-400">{date}</p>
         </div>
 
-        <div className="text-amber-500 text-xs font-bold">
-          ⭐ {rating}
+        <div className="text-slate-500 text-xs font-semibold flex items-center gap-1">
+          <span aria-hidden="true">💬</span>
+          <span>{comments}</span>
         </div>
       </div>
 
