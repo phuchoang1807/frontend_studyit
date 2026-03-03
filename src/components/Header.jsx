@@ -8,6 +8,8 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export default function Header() {
   const [isDarkMode, setIsDarkMode] = useState(() => document.documentElement.classList.contains("dark"));
+  const [activeNav, setActiveNav] = useState("Trang chủ");
+  const navItems = ["Trang chủ", "Khám phá", "Cộng đồng", "Tải lên"];
   const toggleDarkMode = () => {
     const nextIsDarkMode = !isDarkMode;
     document.documentElement.classList.toggle("dark", nextIsDarkMode);
@@ -28,18 +30,24 @@ export default function Header() {
             </a>
 
             <nav className="hidden md:flex items-center gap-6">
-              <a className="text-sm font-medium text-primary border-b-2 border-primary pb-1" href="#">
-                Trang chủ
-              </a>
-              <a className="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white transition-colors" href="#">
-                Khám phá
-              </a>
-              <a className="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white transition-colors" href="#">
-                Cộng đồng
-              </a>
-              <a className="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white transition-colors" href="#">
-                Tải lên
-              </a>
+              {navItems.map((item) => {
+                const isActive = activeNav === item;
+
+                return (
+                  <button
+                    key={item}
+                    className={`text-sm font-medium pb-1 border-b-2 transition-all ${
+                      isActive
+                        ? "text-primary border-primary -translate-y-0.5"
+                        : "text-slate-600 dark:text-slate-400 border-transparent hover:text-primary dark:hover:text-white"
+                    }`}
+                    onClick={() => setActiveNav(item)}
+                    type="button"
+                  >
+                    {item}
+                  </button>
+                );
+              })}
             </nav>
           </div>
 
