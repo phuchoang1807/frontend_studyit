@@ -1,5 +1,5 @@
-import { useEffect } from "react";
 import SearchIcon from "@mui/icons-material/Search";
+import { useState } from "react";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
@@ -7,8 +7,11 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 
 export default function Header() {
+  const [isDarkMode, setIsDarkMode] = useState(() => document.documentElement.classList.contains("dark"));
   const toggleDarkMode = () => {
-    document.documentElement.classList.toggle("dark");
+    const nextIsDarkMode = !isDarkMode;
+    document.documentElement.classList.toggle("dark", nextIsDarkMode);
+    setIsDarkMode(nextIsDarkMode);
   };
 
   return (
@@ -19,13 +22,8 @@ export default function Header() {
           {/* Logo + Nav */}
           <div className="flex items-center gap-8">
             <a className="flex items-center gap-2 group" href="#">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white shadow-lg shadow-primary/20">
-                <span className="material-icons-outlined text-xl">
-                  description
-                </span>
-              </div>
-              <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-400">
-                DevDocs Hub
+                <span className="text-xl font-bold text-slate-900 dark:text-white">
+                DevDocs
               </span>
             </a>
 
@@ -62,11 +60,20 @@ export default function Header() {
             
             {/* Dark Mode */}
             <button
-              className="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"
+              aria-label={isDarkMode ? "Chuyển sang giao diện sáng" : "Chuyển sang giao diện tối"}
+              className="relative h-10 w-10 overflow-hidden rounded-full text-slate-500 dark:text-slate-400 transition-colors hover:bg-slate-100 dark:hover:bg-slate-800"
               onClick={toggleDarkMode}
             >
-              <DarkModeIcon className="dark:hidden" />
-<LightModeIcon className="hidden dark:block" />
+              <DarkModeIcon
+                className={`absolute inset-0 m-auto transition-all duration-300 ${
+                  isDarkMode ? "scale-75 rotate-45 opacity-0" : "scale-100 rotate-0 opacity-100"
+                }`}
+              />
+              <LightModeIcon
+                className={`absolute inset-0 m-auto transition-all duration-300 ${
+                  isDarkMode ? "scale-100 rotate-0 opacity-100" : "scale-75 -rotate-45 opacity-0"
+                }`}
+              />
             </button>
 
             {/* Notification */}
@@ -80,9 +87,10 @@ export default function Header() {
             {/* Avatar */}
             <button className="flex items-center gap-2 p-1 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors">
               <img
+               alt="Profile avatar"
                 className="w-8 h-8 rounded-full border border-slate-200 dark:border-slate-700"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuAM28gaZL2I9W0a0loEHCxWCp-Apm8EMnzXlPGVW-zT9ZlqpH-VE3MZlYTZSkJfV2ZhkUAp9aqw1Vwe_gfKXFTReMY8j6LYy0cgJfm1AAHbjSX3qv49u2rh1UsqLvFpPyry0fCBk9SxhgOhlAJqRZiwWdLfZCWsWgDreJwyMmrgEiJTj6z3mo5gixSbKgKpelwPAm9XrQ7gupBmGK8fAw3glIOnXpABSED9Fj3G6AtQbfG2JnfHSdb7BxJEKCkXYlQhXGtj2wL_qHo"
-                alt="Profile avatar"
+                
               />
               <ExpandMoreIcon className="text-slate-400" />
             </button>
