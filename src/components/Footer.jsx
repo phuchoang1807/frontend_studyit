@@ -14,11 +14,12 @@ export default function Footer() {
             <a className="flex items-center gap-2 mb-6" href="#">
               <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white">
                 <span className="material-symbols-outlined text-xl">
-                  school
+                 
                 </span>
               </div>
               <span className="text-xl font-bold tracking-tight text-slate-800 dark:text-white">
-                IT LearnHub
+                                StudyIT
+
               </span>
             </a>
 
@@ -72,7 +73,7 @@ export default function Footer() {
         {/* Bottom */}
         <div className="pt-8 border-t border-slate-200 dark:border-slate-700 flex justify-between items-center">
           <p className="text-sm text-slate-500 dark:text-slate-400">
-            © 2024 IT LearnHub. All rights reserved.
+            © 2026 StudyIT. All rights reserved.
           </p>
 
           <div className="flex gap-6 text-sm text-slate-400">

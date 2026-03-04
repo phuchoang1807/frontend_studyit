@@ -9,7 +9,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 export default function Header() {
   const [isDarkMode, setIsDarkMode] = useState(() => document.documentElement.classList.contains("dark"));
   const [activeNav, setActiveNav] = useState("Trang chủ");
-  const navItems = ["Trang chủ", "Khám phá", "Cộng đồng", "Tải lên"];
+  const navItems = ["Trang chủ", "Khám phá", "Tải lên"];
   const toggleDarkMode = () => {
     const nextIsDarkMode = !isDarkMode;
     document.documentElement.classList.toggle("dark", nextIsDarkMode);
@@ -25,7 +25,7 @@ export default function Header() {
           <div className="flex items-center gap-8">
             <a className="flex items-center gap-2 group" href="#">
                 <span className="text-xl font-bold text-slate-900 dark:text-white">
-                DevDocs
+                StudyIT
               </span>
             </a>
 

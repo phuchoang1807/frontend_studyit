@@ -65,7 +65,7 @@ import { Link } from "react-router-dom";
         </main>
 
         <footer className="py-6 text-center text-sm text-gray-500">
-            © 2023 IT Docs Share. All rights reserved.
+
         </footer>
 
         </div>

@@ -30,7 +30,7 @@ export default function LoginPage() {
                 </svg>
               </div>
               <h2 className="text-2xl font-bold text-gray-900">
-                DevDocs Hub
+                StudyIT
               </h2>
             </div>
 
@@ -38,7 +38,7 @@ export default function LoginPage() {
               Welcome back
             </h1>
             <p className="text-gray-500 mt-2">
-              Please enter your details to sign in.
+
             </p>
           </div>
 
@@ -85,14 +85,14 @@ export default function LoginPage() {
             <div className="flex items-center justify-between text-sm">
               <label className="flex items-center gap-2">
                 <input type="checkbox" />
-                Remember me
+                Nhớ tài khoản
               </label>
 
               <Link
                 to="/forgot-password"
                 className="text-indigo-600 font-medium"
               >
-                Forgot password?
+                Quên mật khẩu?
               </Link>
             </div>
 
@@ -101,14 +101,14 @@ export default function LoginPage() {
               type="submit"
               className="w-full h-12 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition"
             >
-              Sign In
+              Đăng nhập
             </button>
           </form>
 
           {/* SOCIAL */}
           <div className="mt-8">
             <p className="text-center text-gray-400 text-sm mb-4">
-              Or continue with
+              Hoặc tiếp tục với
             </p>
 
             <div className="flex gap-4">
@@ -123,7 +123,7 @@ export default function LoginPage() {
 
           {/* SIGN UP */}
           <p className="mt-8 text-sm text-gray-500">
-            Don’t have an account?
+            Bạn chưa có tài khoản?
             <Link
               to="/register"
               className="text-indigo-600 font-semibold ml-1"
@@ -143,10 +143,10 @@ export default function LoginPage() {
             className="w-72 mx-auto"
           />
           <h3 className="text-2xl font-bold mt-6 text-gray-800">
-            Master Your Craft
+            Làm chủ IT
           </h3>
           <p className="text-gray-500 mt-3">
-            Access thousands of curated documentation and connect with developers.
+            Truy cập hàng ngàn tài liệu được tuyển chọn và kết nối với các nhà phát triển.
           </p>
         </div>
       </div>
