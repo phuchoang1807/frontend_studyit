@@ -1,73 +1,76 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
-    export default function ForgotPasswordPage() {
-    return (
-        <div className="min-h-screen flex flex-col bg-white">
-        
-        {/* MAIN */}
-        <main className="flex-grow flex items-center justify-center p-4 relative overflow-hidden">
-            
-            <div className="w-full max-w-[480px] bg-white rounded-xl shadow-lg border border-[#e5e7eb] overflow-hidden relative z-10">
-            
-            <div className="p-8 flex flex-col gap-6">
-                
-                <div className="text-center space-y-2">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gray-100 text-gray-600 mb-2">                    🔐
-                </div>
-                <h1 className="text-3xl font-black">
-                    Quên Mật khẩu
-                </h1>
-                <p className="text-gray-500">
-                    Khôi phục quyền truy cập vào tài khoản của bạn.
-                </p>
+export default function ForgotPasswordPage() {
+  const [email, setEmail] = useState("");
+
+  return (
+    <div className="bg-white relative self-stretch shrink-0 w-full lg:w-[500px] z-[2] min-h-screen">
+      <div aria-hidden="true" className="absolute border-[#e5e7eb] lg:border-r border-solid inset-0 pointer-events-none" />
+      <div className="flex flex-col items-center justify-center size-full">
+        <div className="content-stretch flex flex-col items-center justify-center px-8 lg:pl-[48px] lg:pr-[49px] py-[48px] relative size-full">
+          
+          <div className="absolute bg-[rgba(255,255,255,0)] bottom-0 left-0 shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_8px_10px_-6px_rgba(0,0,0,0.1)] top-0 w-full lg:w-[500px]" />
+
+          <div className="max-w-[400px] relative shrink-0 w-full">
+            <div className="content-stretch flex flex-col gap-[32px] items-start relative w-full">
+              
+              <div className="content-stretch flex flex-col items-start w-full">
+                <div className="flex flex-col font-bold justify-center text-[#111418] text-[30px] tracking-[-0.45px]">
+                  <p className="leading-[37.5px]">Forgot Password?</p>
                 </div>
 
-                <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                <p className="text-sm text-center text-gray-700">
-                    Nhập email đã đăng ký, chúng tôi sẽ gửi liên kết đặt lại mật khẩu.
-                </p>
+                <div className="content-stretch flex flex-col items-start pt-[12px]">
+                  <div className="flex flex-col font-normal text-[#637588] text-[14px]">
+                    <p className="leading-[21px]">
+                      No worries! Enter your email and we&apos;ll send you a reset link.
+                    </p>
+                  </div>
                 </div>
+              </div>
 
-                <form className="flex flex-col gap-4">
-                
-                <div className="flex flex-col gap-2">
-                    <label className="font-medium" htmlFor="email">
-                    Địa chỉ Email
-                    </label>
+              <div className="content-stretch flex flex-col gap-[24px] items-start w-full">
+                <div className="content-stretch flex flex-col gap-[8px] items-start w-full">
+                  <p className="font-medium text-[#111418] text-[14px] leading-[21px]">
+                    Email Address
+                  </p>
 
+                  {/* Sửa ở đây: thêm relative */}
+                  <div className="bg-white h-[48px] relative rounded-[8px] w-full">
                     <input
-                    id="email"
-                    type="email"
-                    placeholder="user@example.com"
-                    className="w-full rounded-lg border border-gray-300 p-3 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="user@example.com"
+                      className="absolute inset-0 w-full h-full px-[17px] py-[14px] rounded-[8px] border border-[#dbe0e6] text-[16px] text-[#111418] placeholder:text-[#9ca3af] focus:outline-none focus:border-[#137fec]"
                     />
+                  </div>
+
                 </div>
 
-                <button
-                    type="button"
-                    className="w-full h-12 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg transition"
-                >
-                    Gửi liên kết xác nhận
+                <button className="bg-[#137fec] h-[48px] rounded-[8px] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] w-full hover:bg-[#1166c7] transition-colors text-white font-bold">
+                  Send reset link
                 </button>
-                </form>
+              </div>
 
-                <div className="flex justify-center mt-2">
+              <div className="content-stretch flex gap-[4px] items-start text-[14px] w-full justify-center">
+                <p className="text-[#637588] leading-[20px]">
+                  Remember your password?
+                </p>
+
                 <Link
-                    to="/"
-                    className="inline-flex items-center gap-2 text-sm font-bold text-gray-500 hover:text-indigo-600 transition"
+                  to="/login"
+                  className="font-semibold text-[#137fec] hover:underline leading-[20px]"
                 >
-                    ← Quay lại Đăng nhập
+                  Back to Sign In
                 </Link>
-                </div>
+              </div>
 
             </div>
-            </div>
-        </main>
-
-        <footer className="py-6 text-center text-sm text-gray-500">
-
-        </footer>
+          </div>
 
         </div>
-    );
-    }
+      </div>
+    </div>
+  );
+}

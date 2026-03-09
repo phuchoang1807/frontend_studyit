@@ -1,7 +1,20 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+function EyeIcon() {
+  return (
+    <svg width="20" height="13" viewBox="0 0 20 13" fill="none" aria-hidden="true">
+      <path
+        d="M10 0.5C5.455 0.5 1.573 3.327 0 6.5C1.573 9.673 5.455 12.5 10 12.5C14.545 12.5 18.427 9.673 20 6.5C18.427 3.327 14.545 0.5 10 0.5ZM10 10.5C7.79 10.5 6 8.71 6 6.5C6 4.29 7.79 2.5 10 2.5C12.21 2.5 14 4.29 14 6.5C14 8.71 12.21 10.5 10 10.5Z"
+        fill="#9ca3af"
+      />
+    </svg>
+  );
+}
+
 export default function LoginPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
@@ -15,139 +28,94 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen w-full flex bg-[#f3f4f6]">
-      
-      {/* LEFT SIDE - FORM */}
-      <div className="w-1/2 min-h-screen flex items-center justify-center bg-white">
-        <div className="w-full max-w-md px-8">
-          
-          {/* HEADER */}
-          <div className="mb-8">
-            <div className="flex items-center gap-3 text-indigo-600 mb-6">
-              <div className="w-9 h-9">
-                <svg viewBox="0 0 48 48" fill="currentColor">
-                  <path d="M44 11.27C44 14.01 39.83 16.39 33.69 17.63C39.83 18.87 44 21.26 44 24C44 26.73 39.83 29.12 33.69 30.36C39.83 31.6 44 33.98 44 36.72C44 40.74 35.04 44 24 44C12.95 44 4 40.74 4 36.72C4 33.98 8.16 31.6 14.31 30.36C8.16 29.12 4 26.73 4 24C4 21.26 8.16 18.87 14.31 17.63C8.16 16.39 4 14.01 4 11.27C4 7.25 12.95 4 24 4C35.04 4 44 7.25 44 11.27Z" />
-                </svg>
+    <div className="bg-white relative self-stretch shrink-0 w-full lg:w-[500px] z-[2] min-h-screen">
+      <div aria-hidden="true" className="absolute border-[#e5e7eb] lg:border-r border-solid inset-0 pointer-events-none" />
+      <div className="flex flex-col items-center justify-center size-full">
+        <div className="content-stretch flex flex-col items-center justify-center px-8 lg:pl-[48px] lg:pr-[49px] py-[48px] relative size-full">
+          <div className="absolute bg-[rgba(255,255,255,0)] bottom-0 left-0 shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_8px_10px_-6px_rgba(0,0,0,0.1)] top-0 w-full lg:w-[500px]" />
+
+          <div className="max-w-[400px] relative shrink-0 w-full" data-name="Container">
+            <form onSubmit={handleLogin} className="content-stretch flex flex-col gap-[32px] items-start relative w-full">
+              <div className="content-stretch flex flex-col items-start w-full">
+                <div className="flex flex-col font-bold justify-center text-[#111418] text-[30px] tracking-[-0.45px]">
+                  <p className="leading-[37.5px]">Sign In</p>
+                </div>
+                <div className="content-stretch flex flex-col items-start pt-[12px]">
+                  <div className="flex flex-col font-normal text-[#637588] text-[14px]">
+                    <p className="leading-[21px]">Welcome back! Please enter your credentials.</p>
+                  </div>
+                </div>
               </div>
-              <h2 className="text-2xl font-bold text-gray-900">
-                StudyIT
-              </h2>
-            </div>
+              
 
-            <h1 className="text-3xl font-bold text-gray-900">
-              Welcome back
-            </h1>
-            <p className="text-gray-500 mt-2">
+              <div className="content-stretch flex flex-col gap-[24px] items-start w-full">
+                <div className="content-stretch flex flex-col gap-[8px] items-start w-full">
+                  <p className="font-medium text-[#111418] text-[14px] leading-[21px]">Email Address</p>
+                  <div className="bg-white h-[48px] relative rounded-[8px] w-full">
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="user@example.com"
+                      className="absolute inset-0 w-full h-full px-[17px] py-[14px] rounded-[8px] border border-[#dbe0e6] text-[16px] text-[#111418] placeholder:text-[#9ca3af] focus:outline-none focus:border-[#137fec]"
+                    />
+                  </div>
+                </div>
 
-            </p>
-          </div>
+                <div className="content-stretch flex flex-col gap-[8px] items-start w-full">
+                  <div className="flex items-center justify-between w-full">
+                    <p className="font-medium text-[#111418] text-[14px] leading-[21px]">Password</p>
+                    <Link to="/forgot-password" className="font-semibold text-[14px] text-[#137fec] leading-[20px] hover:underline">
+                      Forgot password?
+                    </Link>
+                  </div>
+                  <div className="bg-white h-[48px] relative rounded-[8px] w-full">
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      placeholder="Enter your password"
+                      className="absolute inset-0 w-full h-full px-[17px] py-[14px] rounded-[8px] border border-[#dbe0e6] text-[16px] text-[#111418] placeholder:text-[#9ca3af] focus:outline-none focus:border-[#137fec]"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-[17px] top-1/2 -translate-y-1/2 w-5 h-5 flex items-center justify-center"
+                    >
+                      <EyeIcon />
+                    </button>
+                  </div>
+                </div>
 
-          {/* FORM */}
-          <form className="space-y-5" onSubmit={handleLogin}>
-            
-            {/* EMAIL */}
-            <div>
-              <label className="block text-sm font-medium mb-2 text-gray-700">
-                Email
-              </label>
-              <input
-                type="email"
-                required
-                placeholder="user@example.com"
-                className="w-full h-12 px-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              />
-            </div>
-
-            {/* PASSWORD */}
-            <div>
-              <label className="block text-sm font-medium mb-2 text-gray-700">
-                Password
-              </label>
-
-              <div className="relative">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  required
-                  placeholder="Enter your password"
-                  className="w-full h-12 pl-4 pr-12 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"
-                >
-                  {showPassword ? "🙈" : "👁"}
+                <button className="bg-[#137fec] h-[48px] rounded-[8px] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] w-full hover:bg-[#1166c7] transition-colors text-white font-bold">
+                  Sign In
                 </button>
               </div>
-            </div>
+            
 
-            {/* OPTIONS */}
-            <div className="flex items-center justify-between text-sm">
-              <label className="flex items-center gap-2">
-                <input type="checkbox" />
-                Nhớ tài khoản
-              </label>
+            <div className="content-stretch flex flex-col gap-[16px] items-start w-full">
+                <div className="flex items-center gap-[16px] w-full">
+                  <div className="flex-1 h-[1px] bg-[#e5e7eb]" />
+                  <span className="text-[14px] text-[#637588]">or continue with</span>
+                  <div className="flex-1 h-[1px] bg-[#e5e7eb]" />
+                </div>
 
-              <Link
-                to="/forgot-password"
-                className="text-indigo-600 font-medium"
-              >
-                Quên mật khẩu?
-              </Link>
-            </div>
+                <div className="flex gap-[12px] w-full">
+                  <button type="button" className="flex-1 h-[48px] border border-[#dbe0e6] rounded-[8px] flex items-center justify-center hover:bg-[#f9fafb] transition-colors">Google</button>
+                  <button type="button" className="flex-1 h-[48px] border border-[#dbe0e6] rounded-[8px] flex items-center justify-center hover:bg-[#f9fafb] transition-colors">GitHub</button>
+                </div>
+              </div>
 
-            {/* BUTTON */}
-            <button
-              type="submit"
-              className="w-full h-12 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition"
-            >
-              Đăng nhập
-            </button>
-          </form>
-
-          {/* SOCIAL */}
-          <div className="mt-8">
-            <p className="text-center text-gray-400 text-sm mb-4">
-              Hoặc tiếp tục với
-            </p>
-
-            <div className="flex gap-4">
-              <button className="flex-1 h-11 border rounded-lg hover:bg-gray-50">
-                Google
-              </button>
-              <button className="flex-1 h-11 border rounded-lg hover:bg-gray-50">
-                GitHub
-              </button>
-            </div>
+            <div className="content-stretch flex gap-[4px] items-start text-[14px] w-full justify-center">
+                <p className="text-[#637588] leading-[20px]">Don&apos;t have an account?</p>
+                <Link to="/register" className="font-semibold text-[#137fec] hover:underline leading-[20px]">
+                  Sign Up
+                </Link>
+              </div>
+            </form>
           </div>
 
-          {/* SIGN UP */}
-          <p className="mt-8 text-sm text-gray-500">
-            Bạn chưa có tài khoản?
-            <Link
-              to="/register"
-              className="text-indigo-600 font-semibold ml-1"
-            >
-              Đăng ký ngay
-            </Link>
-          </p>
-        </div>
-      </div>
-
-      {/* RIGHT SIDE - BANNER */}
-      <div className="w-1/2 min-h-screen flex items-center justify-center bg-gradient-to-br from-[#e6ecff] to-[#f4f6fb]">
-        <div className="text-center max-w-md px-8">
-          <img
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCW0c8Lica8XJjUJpQxmzasAS4BJ3EksZpCX022xXa-MrZbMr0rCz3m_eTL1_7uCi-JfMMDDw_eFKh6X4hjl6cTauazy9LOPESPEyMkU2zj2JzKBBu4nUjx-3MrIwe3SWWACM6cDBoOFvANeF1MYcoVaItTUVoZkHvBx_l7noIP5VfNjMLR34P2NOpX1ELo7ONPTv15W6yT-BD3Wr_vIQlDSongu7YwQScjRsKbu8I9FJaGrAwx_UvYsjORtmAALU7R8OkIxqPoXh4"
-            alt="coding"
-            className="w-72 mx-auto"
-          />
-          <h3 className="text-2xl font-bold mt-6 text-gray-800">
-            Làm chủ IT
-          </h3>
-          <p className="text-gray-500 mt-3">
-            Truy cập hàng ngàn tài liệu được tuyển chọn và kết nối với các nhà phát triển.
-          </p>
+          
         </div>
       </div>
     </div>
